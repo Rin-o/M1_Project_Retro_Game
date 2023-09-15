@@ -70,6 +70,9 @@ window.onload = function(){
 
 function update() {
     requestAnimationFrame(update);
+    if (gameOver){
+        return;
+    }
     context.clearRect(0, 0, board.width, board.height);
 
     //player
@@ -92,8 +95,9 @@ function update() {
 
     else if (ball.y + ball.height >= boardHeight) {
         //if ball touches bottom of canvas
-        //context.fillText("Game Over: Press 'Space' to restart", 80, 400);
-        //gameOver = true;
+        context.font = "20px sans-serif";
+        context.fillText("Game Over: Press 'Space' to restart", 80, 400);
+        gameOver = true;
     }
 
         //bounce the ball off player paddle
@@ -125,20 +129,30 @@ function update() {
                 context.fillRect(block.x, block.y, block.width, block.height);
             }
         }
-    }
+           if (blockCount ==0){
+            score += 100*blockRows*blockColumns;
+            blockRows = Math.min(blockRows + 1, blockMaxRows);
+            createBlocks();
+            
+        }
+
+        //score
+        context.font = "20px sans-serif";
+        context.fillText(score, 10, 25);
+}
 
 function outOfBounds(xPosition){
     return (xPosition < 0 || xPosition + playerWidth > boardWidth);
 }
 
 function movePlayer(e) {
-    //if (gameOver){
-       // if(e.code == "Space") {
-         //   resetGame();
-         //   console.log("RESET");
-        //}
-       // return;
-   // }
+    if (gameOver){
+       if(e.code == "Space") {
+            resetGame();
+            console.log("RESET");
+        }
+        return;
+   }
 
     if (e.code == "ArrowLeft") {
 //player.x -= player.velocityX;
@@ -198,7 +212,25 @@ function createBlocks(){
 blockCount = blockArray.length;
 }
 
-
-
-
-
+function resetGame(){
+    gameOver = false;
+    player = {
+        x : boardWidth/2 - playerWidth/2,
+        x : boardHeight - playerHeight - 5,
+        width: playerWidth,
+        height: playerHeight,
+        velocityX : playerVelocityX
+    }
+    ball = {
+        x : boardWidth/2,
+        y : boardHeight/2,
+        width: ballWidth,
+        height: ballHeight,
+        velocityX : ballVelocityX,
+        velocityY: ballVelocityY,
+    }
+    blockArray = [];
+    blockRows = 3;
+    score = 0;
+    createBlocks();
+}
