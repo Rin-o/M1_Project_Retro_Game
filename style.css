@@ -1,4 +1,4 @@
-#game-intro {
+/*#game-intro {
     height:800px;
     width: 1400px;
       background-image: radial-gradient(#ccc 10%, transparent 10%),
@@ -9,7 +9,6 @@
       background-size: 50px 50px;
 }
 
-/*this is not working...*/
 .box { 
     background-color: white;
     font-size: 1.7em;
@@ -52,18 +51,27 @@
     background-color: #604abd;
     color: white;
   }
+  */
 
 .grid {
     position: absolute;
-    width: 1200px;
-    height: 600px;
-    border: solid #b096f6 1px;
+    width: 560px;
+    height: 300px;
+    border: solid #b096f6 2px;
+    margin-top: 100px;
 }
 
-.block {
-    width: 80px;
-    height: 100px;
+block {
+    position: absolute;
+    width: 100px;
+    height: 20px;
     background-color: #f4d85a
-    /*left: 50px;
-    bottom: 50px;*/
+}
+
+.ball {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: red:
 }
