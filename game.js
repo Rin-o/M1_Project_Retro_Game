@@ -35,8 +35,21 @@ let ball = {
     velocityY: ballVelocityY
 }
 
+//blocks
+let blockArray = [];
+let blockWidth = 50;
+let blockHeight = 10;
+let blockColumns = 8;
+let blockRows = 3;
+let blockMaxRows = 10;
+let blockCount = 0;
 
+//starting block corners top left
+let blockX = 15;
+let blockY = 45;
 
+let score = 0;
+let gameOver = false;
 
 window.onload = function(){
     board = document.getElementById("board");
@@ -52,7 +65,7 @@ window.onload = function(){
     document.addEventListener("keydown", movePlayer);
 
     //create blocks
-   // createlocks();
+   createBlocks();
 }
 
 function update() {
@@ -90,6 +103,27 @@ function update() {
 
         else if (leftCollision(ball, player)|| rightCollision(ball, player)){
         ball.velocityX *= -1;
+        }
+
+        //blocks
+        context.fillStyle = "skyBlue";
+        for (let i=0; i<blockArray.length; i++){
+            let block = blockArray [i];
+            if (!block.break){
+                if (topCollision(ball, block)||bottomCollision(ball, block)){
+                    block.break = true;
+                    ball.velocityY *= -1;
+                    score += 100;
+                    blockCount -= 1;
+                }
+                else if (leftCollision(ball, block) || rightCollision(ball, block)){
+                    block.break = true;
+                    ball.velocityX *= -1;
+                    score += 100;
+                    blockCount -= 1;
+                }
+                context.fillRect(block.x, block.y, block.width, block.height);
+            }
         }
     }
 
@@ -144,6 +178,24 @@ function leftCollision(ball, block){
 
 function rightCollision(ball, block){
     return detectCollision(ball, block) && (block.x + block.width) >= ball.x;
+}
+
+function createBlocks(){
+    blockArray = [];
+    for (let c=0; c<blockColumns; c++){
+        for (let r = 0; r < blockRows; r++){
+            let block = {
+                x : blockX + c*blockWidth + c*10,
+                y : blockY + r*blockHeight + r*10,
+                width : blockWidth,
+                height : blockHeight,
+                break : false
+            }
+            blockArray.push(block);
+        }
+
+    }
+blockCount = blockArray.length;
 }
 
 
