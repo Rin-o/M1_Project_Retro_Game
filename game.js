@@ -7,8 +7,8 @@ let context;
 
 
 //players
-let playerWidth = 80;
-let playerHeight = 10;
+let playerWidth = 300;
+let playerHeight = 20;
 let playerVelocityX = 10;
 
 let player = {
