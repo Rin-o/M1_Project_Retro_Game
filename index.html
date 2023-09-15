@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>🐣Egg Breaker🐔</title>
+  </head>
+  <body>
+    <main>
+      <!-- #game-intro is initially shown on the game start screen -->
+      <div id="game-intro">
+        <img src="" alt="" class="img" />
+        <br />
+        <h1>📣INSTRUCTIONS📣</h1>
+        <p>The chicken is bouncing to crack shell of its eggs!🐔 <br />
+            Help it crack them and catch it with a basket so 
+            that it can keep cracking the eggs.<br />
+            Game over if you cannot catch the chicken with the basket🤭
+            <br /><br />
+            
+            Arrow left → Move the basket left<br />
+            Arrow right → Move the basket right<br />
+        </p>
+        <form action="post" method="get" name="myForm">
+            <label for="yourName">Your name:</label>
+            <input type="text" id="yourName" name="yourName"><br />
+            <label for="level">Choose level:</label>
+            <select name="level" id="level">
+                <option value="level1" id="level1">Level 1 (Slow)</option>
+                <option value="level2" id="level2">Level 2 (Medium)</option>
+                <option value="level3" id="level3">Level 3 (Fast)</option>
+            </select><br>
+            <input type="button" onclick="formSubmit()" value="Register"><br><br>
+          </form>
+        <button id="start-button">Let's get started 🎮</button>
+
+        <img src="./images/arrows.png" alt="" class="arrows-img" />
+      </div>
+
+        <!-- #game-screen is initially hidden using CSS style display: none -->
+        <div id="game-screen"></div>
+      </div>
+
+      <!-- #game-end is initially hidden using CSS style display: none -->
+      <div id="game-end">
+        <img src="./images/logo.png" alt="" class="logo-img" />
+        <h1>Game Over</h1>
+        <br />
+        <!-- <div id="game-container">
+            <div>
+              <h2>Stats</h2>
+              <p>Score: <span id="score">0</span></p>
+              <p>Lives: <span id="lives">3</span></p>
+            </div>-->
+        <button id="restart-button">Restart</button>
+      </div>
+    </main>
+
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>
