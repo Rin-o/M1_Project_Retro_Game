@@ -68,14 +68,6 @@ function update() {
     ball.y += ball.velocityY;
     context.fillRect(ball.x, ball.y, ball.width, ball.height);
 
-    //bounce the ball off player paddle
-    //if (topCollision(ball, player)|| bottomCollision(ball, player)){
-    //    ball.velocityX *= -1;
-    //}
-
-    //else if (leftCollision(ball, player)|| rightCollision(ball, player)){
-      //  ball.velocityX *= -1;
-    //}
     if (ball.y <= 0){
         //if ball touches top of canvas
         ball.velocityY *= -1; //reverse direction
@@ -90,7 +82,16 @@ function update() {
         //context.fillText("Game Over: Press 'Space' to restart", 80, 400);
         //gameOver = true;
     }
-}
+
+        //bounce the ball off player paddle
+        if (topCollision(ball, player)|| bottomCollision(ball, player)){
+        ball.velocityY *= -1;
+        }
+
+        else if (leftCollision(ball, player)|| rightCollision(ball, player)){
+        ball.velocityX *= -1;
+        }
+    }
 
 function outOfBounds(xPosition){
     return (xPosition < 0 || xPosition + playerWidth > boardWidth);
@@ -120,8 +121,32 @@ function movePlayer(e) {
         player.x = nextplayerX;
         }
     }
-
 }
+
+function detectCollision (a,b) {
+    return a.x < b.x + b.width &&
+           a.x + a.width > b.x &&
+           a.y < b.y + b.height &&
+           a.y + a.height > b.y;
+}
+
+function topCollision(ball, block){
+    return detectCollision(ball, block) && (ball.y + ball.height) >= block.y;
+}
+
+function bottomCollision(ball, block){
+    return detectCollision(ball, block) && (block.y + block.height) >= ball.y;
+}
+
+function leftCollision(ball, block){
+    return detectCollision(ball, block) && (ball.x + ball.width) >= block.x;
+}
+
+function rightCollision(ball, block){
+    return detectCollision(ball, block) && (block.x + block.width) >= ball.x;
+}
+
+
 
 
 
