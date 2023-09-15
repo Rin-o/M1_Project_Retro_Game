@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>🐣Egg Breaker🐔</title>
   </head>
   <body>
     <main>
       <!-- #game-intro is initially shown on the game start screen -->
       <div id="game-intro">
+        <div class="box">
         <img src="" alt="" class="img" />
         <br />
         <h1>📣INSTRUCTIONS📣</h1>
@@ -20,8 +21,8 @@
             Game over if you cannot catch the chicken with the basket🤭
             <br /><br />
             
-            Arrow left → Move the basket left<br />
-            Arrow right → Move the basket right<br />
+            Arrow left ⬅️ Move the basket left<br />
+            Arrow right -> Move the basket right<br />
         </p>
         <form action="post" method="get" name="myForm">
             <label for="yourName">Your name:</label>
@@ -32,54 +33,55 @@
                 <option value="level2" id="level2">Level 2 (Medium)</option>
                 <option value="level3" id="level3">Level 3 (Fast)</option>
             </select><br>
-            <input type="button" onclick="formSubmit()" value="Register"><br><br>
+            <input class="button" onclick="formSubmit()" value="Register"><br><br>
           </form>
-        <button id="start-button">Let's get started 🎮</button>
-
-        <img src="./images/arrows.png" alt="" class="arrows-img" />
+        <button class="start-button">Let's get started 🎮</button>
+        </div>
       </div>
 
         <!-- #game-screen is initially hidden using CSS style display: none -->
         <div id="game-screen"></div>
+        <div class="grid">
+            <div class="block"></div>
+        </div>
       </div>
 
       <!-- #gameOver is initially hidden using CSS style display: none -->
-      <div id="gameOver">
+      <!-- <div id="gameOver">
         <h1>GAME OVER</h1>        
         <img src="./images/chicken_gameover.gif" alt="Game Over" class="gameOver" />
         <br />
-        <!-- <div id="game-container">
+         <div id="game-container">
             <div>
               <h2>Stats</h2>
               <p>Score: <span id="score">0</span></p>
               <p>Lives: <span id="lives">3</span></p>
             </div>-->
-        <p>You dropped the chicken....Wanna try again?</p>
+        <!-- <p>You dropped the chicken....Wanna try again?</p>
         <button id="restart-button">Restart</button>
       </div>
-             <!-- <div id="game-container">
+              <div id="game-container">
             <div>
               <h2>Stats</h2>
               <p>Score: <span id="score">0</span></p>
               <p>Lives: <span id="lives">3</span></p>
             </div>--> 
       <!-- #gameClear is initially hidden using CSS style display: none -->
-      <div id="gameClear">
+      <!-- <div id="gameClear">
         <h1>YOU MADE IT!</h1>
         <img src="./images/chicken_gameclear.gif" alt="Game clear" class="gameClear" />
         <br />
-        <!-- <div id="game-container">
+         <div id="game-container">
             <div>
               <h2>Stats</h2>
               <p>Score: <span id="score">0</span></p>
               <p>Lives: <span id="lives">3</span></p>
             </div>-->
-        <p>All the chicks are hached now🐥....Wanna try again?</p>
-        <button id="restart-button">Restart</button>
+       <!--  <p>All the chicks are hached now🐥....Wanna try again?</p>
+        <button id="restart-button">Restart</button>-->
       </div>
     </main>
 
-    <script type="text/javascript" src="js/game.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="game.js"></script>
   </body>
 </html>
