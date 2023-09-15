@@ -53,25 +53,15 @@
   }
   */
 
-.grid {
-    position: absolute;
-    width: 560px;
-    height: 300px;
-    border: solid #b096f6 2px;
-    margin-top: 100px;
-}
+  main {
+    text-align: center;
+  }
 
-block {
-    position: absolute;
-    width: 100px;
-    height: 20px;
-    background-color: #f4d85a
-}
+  #myCanvas {
+    background-color: #b096f6;
+    border: 5px solid #604abd;
+    /*border-top: 5px solid #604abd;
+    border-left: 5px solid #604abd;
+    border-right: 5px solid #604abd;*/
 
-.ball {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    background-color: red:
-}
+  }
