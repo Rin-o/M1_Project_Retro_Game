@@ -31,15 +31,15 @@ function gameOver(){
 
 let canvas;
 let boardWidth = 500;
-let boardHeight = 500;
+let boardHeight = 700;
 let context;
 
 
 //players (slider)
-let playerWidth = 100;
-let playerHeight = 20;
+let playerWidth = 250;
+let playerHeight = 70;
 //let img = new Image(); trird to insert image instead of the square ball
-//img.src = 'Images/chicken_8bit.png';
+//img.src = 'Images/basket_8bit.png';
 //img.width = 100;
 //img.height = 50;
 //context.drawImage(img, 250, 250, 100, 50);
@@ -56,10 +56,10 @@ let player = {
 
 //ball
 
-let ballWidth = 10;
-let ballHeight = 10;
+let ballWidth = 50;
+let ballHeight = 50;
 let ballVelocityX = 3; 
-let ballVelocityY = 2; 
+let ballVelocityY = 2;
 
 let ball = {
     x : boardWidth/2,
@@ -73,7 +73,7 @@ let ball = {
 //blocks
 let blockArray = [];
 let blockWidth = 50;
-let blockHeight = 10;
+let blockHeight = 50;
 let blockColumns = 8;
 let blockRows = 3;
 let blockMaxRows = 10;
@@ -111,7 +111,7 @@ function update() {
     context.clearRect(0, 0, board.width, board.height);
 
     //player
-    context.fillStyle = "lightgreen";
+    context.fillStyle = "brown";
     context.fillRect(player.x, player.y,player.width, player.height);
 
     context.fillStyle = "white";
@@ -131,7 +131,7 @@ function update() {
     else if (ball.y + ball.height >= boardHeight) {
         //if ball touches bottom of canvas
         context.font = "20px sans-serif";
-        context.fillText("Game Over: Press 'Space' to restart", 80, 400);
+        context.fillText("Game Over", 80, 400);
         gameOver = true;
     }
 
@@ -145,7 +145,7 @@ function update() {
         }
 
         //blocks
-        //context.fillStyle = "skyBlue";
+        //context.fillStyle = "white";
         for (let i=0; i<blockArray.length; i++){
             let block = blockArray [i];
             if (!block.break){
