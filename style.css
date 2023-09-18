@@ -1,5 +1,9 @@
 html, body {
   margin:0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #game-intro {
@@ -8,18 +12,16 @@ html, body {
     font-size: 18px;
     font-family: 'VT323', monospace;  
     color: #444444;
-    height:100%;
-    position:absolute; /*to make full screen*/
-    top:0px;
-    right:0px;
-    bottom:0px;
-    left:0px;
+    height:100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-image: radial-gradient(#ccc 10%, transparent 10%),
           radial-gradient(#ccc 10%, transparent 10%);
     background-color: #f4d85a;
-
     /*background-position: 0 0, 50px 50px;*/
-    background-size: 50px 50px;
 }
 
 .box { 
@@ -47,7 +49,7 @@ html, body {
 
 }
 
-.start-button {
+#start-button {
   font-size: 18px;
   font-family: 'VT323', monospace;  
   background-color: #b096f6;
@@ -73,7 +75,7 @@ html, body {
   touch-action: manipulation;
 }
 
-.start-button:hover {
+#start-button:hover {
     background-color: #604abd;
     color: white;
   }
@@ -121,7 +123,7 @@ html, body {
   }
 
   #game-screen {
-    display: none;
+   /*display: none;*/
     align-content: center;
     padding: 20px 0px;
     overflow: hidden;
@@ -130,23 +132,11 @@ html, body {
     background-size: cover;;
   }
 
-  #gameOver {
+  #game-end {
     display: none;
     font-size: 18px;
     font-family: 'VT323', monospace;  
     color: #444444;
-    /*align-content: center;
-    height:100%;
-    position:absolute; /*to make full screen*/
-    /*top:0px;
-    right:0px;
-    bottom:0px;
-    left:0px;
-    background-image: radial-gradient(#ccc 10%, transparent 10%),
-          radial-gradient(#ccc 10%, transparent 10%);
-    background-color: #f4d85a;
-    /*background-position: 0 0, 50px 50px;*/
-    /*background-size: 50px 50px;*/
   }
 
   /*#gameClear {

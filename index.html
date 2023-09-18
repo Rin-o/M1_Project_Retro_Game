@@ -13,7 +13,7 @@
   <body>
     <main>
       <!-- #game-intro is initially shown on the game start screen -->
-      <div id="game-intro" style="display:block">
+      <div id="game-intro">
         <div class="box">
         <br />
         <h1>📣INSTRUCTIONS📣</h1>
@@ -37,26 +37,25 @@
             </select><br>
             <input class="buttonReg" onclick="formSubmit()" value="Register"><br><br>
           </form>
-        <button class="start-button">Let's get started 🎮</button>
+        <button id="start-button">Let's get started 🎮</button>
         </div>
       </div>
+      <div id="game-container">
+        <div>
+          <h2>Stats</h2>
+          <p>Score: <span id="score">0</span></p>
+          <p>Lives: <span id="lives">3</span></p>
+        </div>
 
         <!-- #game-screen is initially hidden using CSS style display: none -->
       <div id="game-screen">
-            <canvas id="board"></canvas>
       </div>
 
       <!-- #gameOver is initially hidden using CSS style display: none -->
-      <div id="gameOver" style="display:none">
+      <div id="game-end">
         <h1>GAME OVER</h1>        
         <img src="./images/chicken_gameover.gif" alt="Game Over" class="gameOver" />
         <br />
-         <div id="game-container">
-            <div>
-              <h1>GAME OVER</h1>        
-              <h2>Stats</h2>
-              <p>Score: <span id="score">0</span>    Lives: <span id="lives">3</span></p>
-            </div>
         <p>You dropped the chicken....Wanna try again?</p>
         <button id="restart-button">Restart 🎮</button>
       </div>
@@ -81,6 +80,8 @@
         <button id="restart-button">Restart</button>
       </div>-->
       <script type="text/javascript" src="BreakOutGame.js"></script>
+      <script type="text/javascript" src="script.js"></script>
+
     </main>
   </body>
 </html>
